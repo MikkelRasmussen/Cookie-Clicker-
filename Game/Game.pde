@@ -30,9 +30,9 @@ void draw() {
   background(255);
   image(img[0], cookieX, cookieY, cookieW, cookieH);
   
-  fill(255);
+  fill(0);
   textSize(32);
-  text("Cookies: " + gamehandler.cookies, 50,50);
+  text("Cookies: " + nf(gamehandler.cookies,0,0), 50,50);
 }
 
 void mouseClicked() {
