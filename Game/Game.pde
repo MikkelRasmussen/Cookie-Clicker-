@@ -12,7 +12,7 @@ int cookieW = 250;
 int cookieH = 250;
 
 
-void setup(){
+void setup() {
   size(800, 800);
 
   gamehandler = new GameHandler();
@@ -24,16 +24,38 @@ void setup(){
   img[4] = loadImage("FactoryIcon.png");
   img[5] = loadImage("AlchemyLabIcon.png");
   img[6] = loadImage("PortalIcon.png");
-  
 }
 
-void draw(){
+void draw() {
   background(255);
-   image(img[0], cookieX, cookieY, cookieW, cookieH);
+  image(img[0], cookieX, cookieY, cookieW, cookieH);
+  
+  fill(255);
+  textSize(32);
+  text("Cookies: " + gamehandler.cookies, 50,50);
 }
 
-void mouseClicked(){
-if(mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH){
-  gamehandler.cookies++;
+void mouseClicked() {
+  if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
+    gamehandler.cookies++;
+  }
 }
+
+void mousePressed() {
+  if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
+    cookieX = cookieX - 5;
+    cookieY = cookieY - 5;
+    cookieH = cookieH + 10;
+    cookieW = cookieW + 10;
+  }
+}
+
+
+void mouseReleased() {
+  if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
+    cookieX = cookieX + 5;
+    cookieY = cookieY + 5; 
+    cookieH = cookieH - 10; 
+    cookieW = cookieW - 10;
+  }
 }
