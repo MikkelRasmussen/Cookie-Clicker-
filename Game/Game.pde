@@ -11,9 +11,8 @@ int cookieY = 275;
 int cookieW = 250;
 int cookieH = 250;
 
-
 void setup() {
-  size(800, 800);
+  size(1200, 800);
 
   gamehandler = new GameHandler();
 
@@ -33,6 +32,11 @@ void draw() {
   fill(0);
   textSize(32);
   text("Cookies: " + nf(gamehandler.cookies,0,0), 50,50);
+  
+  for(int i = 1; i < img.length; i++){
+    line(900, 100*i+87.5, width, 100*i+87.5);
+    image(img[i], 900, 100*i, 75,75);
+  } 
 }
 
 void mouseClicked() {
