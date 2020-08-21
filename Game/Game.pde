@@ -1,6 +1,6 @@
 //Images
 
-CursorUpgrade cursorUpgrade;
+ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
 
 GameHandler gamehandler;
 
@@ -25,24 +25,27 @@ void setup() {
   img[4] = loadImage("FactoryIcon.png");
   img[5] = loadImage("AlchemyLabIcon.png");
   img[6] = loadImage("PortalIcon.png");
-  
-  cursorUpgrade = new CursorUpgrade(450, 450,400 ,400, 50);
+
+  for (int i = 0; i < 10; i++) {
+    cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, i));
+  }
 }
 
 void draw() {
   background(255);
   image(img[0], cookieX, cookieY, cookieW, cookieH);
-  
-  cursorUpgrade.update();
-  
+
+  for (CursorUpgrade temp : cursorUpgrades) {
+    temp.update(cursorUpgrade.get);
+  }
   fill(0);
   textSize(32);
-  text("Cookies: " + nf(gamehandler.cookies,0,0), 50,50);
-  
-  for(int i = 1; i < img.length; i++){
+  text("Cookies: " + nf(gamehandler.cookies, 0, 0), 50, 50);
+
+  for (int i = 1; i < img.length; i++) {
     line(900, 100*i+87.5, width, 100*i+87.5);
-    image(img[i], 900, 100*i, 75,75);
-  } 
+    image(img[i], 900, 100*i, 75, 75);
+  }
 }
 
 void mouseClicked() {
