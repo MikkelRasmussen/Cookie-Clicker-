@@ -2,7 +2,7 @@
 
 ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
 
-GameHandler gamehandler;
+GameHandler gameHandler;
 
 PImage img[] = new PImage[7];
 
@@ -16,7 +16,7 @@ int cookieH = 250;
 void setup() {
   size(1200, 800);
 
-  gamehandler = new GameHandler();
+  gameHandler = new GameHandler();
 
   img[0] = loadImage("PerfectCookie.png");
   img[1] = loadImage("CursorIcon.png");
@@ -25,10 +25,6 @@ void setup() {
   img[4] = loadImage("FactoryIcon.png");
   img[5] = loadImage("AlchemyLabIcon.png");
   img[6] = loadImage("PortalIcon.png");
-
-  for (int i = 0; i < 10; i++) {
-    cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, i));
-  }
 }
 
 void draw() {
@@ -40,17 +36,28 @@ void draw() {
   }
   fill(0);
   textSize(32);
-  text("Cookies: " + nf(gamehandler.cookies, 0, 0), 50, 50);
+  text("Cookies: " + nf(gameHandler.cookies, 0, 0), 50, 50);
+  text("Cps: " + nf(gameHandler.cps,0, 2), 50, 80);
 
   for (int i = 1; i < img.length; i++) {
     line(900, 100*i+87.5, width, 100*i+87.5);
     image(img[i], 900, 100*i, 75, 75);
   }
+  
+  gameHandler.update();
+  
 }
 
 void mouseClicked() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
-    gamehandler.cookies++;
+    gameHandler.cookies++;
+  }
+
+  //Pointers
+  if (checkIfBought(mouseX, mouseY, 900, 100, width, 175)) {
+    if (gameHandler.buy("pointer")) {
+       cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size()));
+    }
   }
 }
 
