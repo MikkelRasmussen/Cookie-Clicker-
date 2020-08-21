@@ -14,6 +14,8 @@ class CursorUpgrade {
     pushMatrix();
     
     display();
+    
+    popMatrix();
   }
   
   void display(){

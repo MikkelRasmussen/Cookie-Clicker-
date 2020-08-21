@@ -1,5 +1,7 @@
 //Images
 
+CursorUpgrade cursorUpgrade;
+
 GameHandler gamehandler;
 
 PImage img[] = new PImage[7];
@@ -23,11 +25,15 @@ void setup() {
   img[4] = loadImage("FactoryIcon.png");
   img[5] = loadImage("AlchemyLabIcon.png");
   img[6] = loadImage("PortalIcon.png");
+  
+  cursorUpgrade = new CursorUpgrade(450, 450,400 ,400, 50);
 }
 
 void draw() {
   background(255);
   image(img[0], cookieX, cookieY, cookieW, cookieH);
+  
+  cursorUpgrade.update();
   
   fill(0);
   textSize(32);
