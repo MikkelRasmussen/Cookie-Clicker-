@@ -19,10 +19,10 @@ class CursorUpgrade {
     int cy = 400;
     int r = 150;
 
-
+    
 
     pushMatrix();
-    float t = millis()/1000.0f + id;
+    float t = millis()/1000.0f + id*0.3;
     int x = (int)(cx+r*cos(t));
     int y = (int)(cy+r*sin(t));
     translate(x, y);

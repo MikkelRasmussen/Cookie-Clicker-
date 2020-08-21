@@ -36,7 +36,7 @@ void draw() {
   image(img[0], cookieX, cookieY, cookieW, cookieH);
 
   for (CursorUpgrade temp : cursorUpgrades) {
-    temp.update(cursorUpgrade.get);
+    temp.update();
   }
   fill(0);
   textSize(32);
