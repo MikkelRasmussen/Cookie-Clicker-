@@ -36,7 +36,7 @@ void draw() {
   }
   fill(0);
   textSize(32);
-  text("Cookies: " + nf(gameHandler.cookies, 0, 0), 50, 50);
+  text("Cookies: " + nf(gameHandler.cookies, 0, -1), 50, 50);
   text("Cps: " + nf(gameHandler.cps,0, 2), 50, 80);
 
   for (int i = 1; i < img.length; i++) {
