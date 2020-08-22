@@ -1,7 +1,7 @@
 class CursorUpgrade {
 
   PVector location, centerLocation;
-  int size, id, cx = 400, cy = 400, r = 150;
+  int time, size, id, cx = 400, cy = 400, r = 150;
 
   CursorUpgrade(int x1, int  y1, int x2, int y2, int s, int i) {
     location = new PVector(x1, y1);
