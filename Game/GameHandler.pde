@@ -1,6 +1,6 @@
 class GameHandler {
 
-  float cookies = 9100000000L;
+  float cookies = 9999100000000L;
   float cps = 0;
 
   int pointers, time;
@@ -26,7 +26,7 @@ class GameHandler {
         cookies = cookies-pointerPrice;
         pointers++;
         pointerPrice = pointerPrice*1.5;
-        cps = cps+0.5;
+        cps = cps+2.5;
         return true;
       } else {
         return false;
