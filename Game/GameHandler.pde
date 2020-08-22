@@ -1,6 +1,6 @@
 class GameHandler {
 
-  float cookies = 0;
+  float cookies = 9100000000L;
   float cps = 0;
 
   int pointers, time;

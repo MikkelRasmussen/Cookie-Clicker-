@@ -37,15 +37,14 @@ void draw() {
   fill(0);
   textSize(32);
   text("Cookies: " + nf(gameHandler.cookies, 0, -1), 50, 50);
-  text("Cps: " + nf(gameHandler.cps,0, 2), 50, 80);
+  text("Cps: " + nf(gameHandler.cps, 0, 2), 50, 80);
 
   for (int i = 1; i < img.length; i++) {
     line(900, 100*i+87.5, width, 100*i+87.5);
     image(img[i], 900, 100*i, 75, 75);
   }
-  
+
   gameHandler.update();
-  
 }
 
 void mouseClicked() {
@@ -56,7 +55,9 @@ void mouseClicked() {
   //Pointers
   if (checkIfBought(mouseX, mouseY, 900, 100, width, 175)) {
     if (gameHandler.buy("pointer")) {
-       cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size()));
+      if (cursorUpgrades.size() < 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 150));
+      else if (cursorUpgrades.size() >= 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 200));
+      else if (cursorUpgrades.size() >= 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 250));
     }
   }
 }
