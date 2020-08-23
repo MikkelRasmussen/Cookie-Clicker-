@@ -1,11 +1,16 @@
 class GameHandler {
 
-  float cookies = 9999100000000L;
+  float cookies = 0;
   float cps = 0;
 
-  int pointers, time;
+  int pointers, grandma, time;
 
   float pointerPrice = 10;
+  float grandmaPrice = 50;
+  float minePrice = 250;
+  float factoryPrice = 1250;
+  float alchemyPrice = 6000;
+  float portalPrice = 30000;
 
   GameHandler() {
   }
@@ -27,6 +32,16 @@ class GameHandler {
         pointers++;
         pointerPrice = pointerPrice*1.5;
         cps = cps+2.5;
+        return true;
+      } else {
+        return false;
+      }
+    } else if (s == "grandma") {
+      if (cookies >= grandmaPrice) {
+        cookies = cookies-grandmaPrice;
+        grandma++;
+        grandmaPrice = grandmaPrice*1.5;
+        cps = cps+12.5;
         return true;
       } else {
         return false;

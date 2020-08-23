@@ -45,6 +45,15 @@ void draw() {
   }
 
   gameHandler.update();
+  textSize(24);
+  text("Price: " + nf(gameHandler.pointerPrice, 0, 1),970, 155);
+  text("Price: " + nf(gameHandler.grandmaPrice, 0, 1),  970, 255);
+  text("Price: " + nf(gameHandler.minePrice, 0, 1),  970, 355);
+  text("Price: " + nf(gameHandler.factoryPrice, 0, 1),  970, 455);
+  text("Price: " + nf(gameHandler.alchemyPrice, 0, 1),  970, 555);
+  text("Price: " + nf(gameHandler.portalPrice, 0, 1),  970, 655);
+  
+   
 }
 
 void mouseClicked() {
