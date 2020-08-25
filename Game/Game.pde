@@ -2,6 +2,8 @@
 
 ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
 
+String[] Upgrades = {"pointer", "grandma", "mine", "factory", "alchemy", "portal"};
+
 GameHandler gameHandler;
 
 PImage img[] = new PImage[7];
@@ -59,56 +61,31 @@ void mouseClicked() {
     gameHandler.cookies++;
   }
 
-  //Pointers
-  if (checkIfBought(mouseX, mouseY, 900, 100, width, 87.5)) {
-    if (gameHandler.buy("pointer")) {
-      if (cursorUpgrades.size() < 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 150));
-      else if (cursorUpgrades.size() >= 21 && cursorUpgrades.size() < 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 200));
-      else if (cursorUpgrades.size() >= 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 250));
-    }
+
+  // Upgrades
+  for ( int i = 0; i < Upgrades.length; i++ ){
+    if(checkIfBought(mouseX, mouseY, 900, i*100 + 87.5, width, 100)){
+      gameHandler.buy(Upgrades[i]);
+     }
   }
-   else if (checkIfBought(mouseX, mouseY, 900, 187.5, width, 100)) {
-    if (gameHandler.buy("grandma")) {
-      
-    }
-  }  
-  else if (checkIfBought(mouseX, mouseY, 900, 287.5, width, 100)) {
-    if (gameHandler.buy("mine")) {
-      
-    }
-  } 
-  else if (checkIfBought(mouseX, mouseY, 900, 387.5, width, 100)) {
-    if (gameHandler.buy("factory")) {
-      
-    }
-  } 
-  else if (checkIfBought(mouseX, mouseY, 900, 487.5, width, 100)) {
-    if (gameHandler.buy("alchemy")) {
-      
-    }
-  }  
-  else if (checkIfBought(mouseX, mouseY, 900, 587.5, width, 100)) {
-    if (gameHandler.buy("portal")) {
-      
-    }
-  } 
+
 }
 
 void mousePressed() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
-    cookieX = cookieX - 5;
-    cookieY = cookieY - 5;
-    cookieH = cookieH + 10;
-    cookieW = cookieW + 10;
+    cookieX = cookieX - 5; 
+      cookieY = cookieY - 5; 
+      cookieH = cookieH + 10; 
+      cookieW = cookieW + 10;
   }
 }
 
 
 void mouseReleased() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
-    cookieX = cookieX + 5;
-    cookieY = cookieY + 5; 
-    cookieH = cookieH - 10; 
-    cookieW = cookieW - 10;
+    cookieX = cookieX + 5; 
+      cookieY = cookieY + 5; 
+      cookieH = cookieH - 10; 
+      cookieW = cookieW - 10;
   }
 }

@@ -1,6 +1,6 @@
 class GameHandler {
 
-  float cookies = 0L;
+  float cookies = 9999999999999999999999L;
   float cps = 0;
 
   int pointers, grandma, mine, factory, alchemy, portal, time;
@@ -32,6 +32,9 @@ class GameHandler {
         pointers++;
         pointerPrice = pointerPrice*1.5;
         cps = cps+2.5;
+        if (cursorUpgrades.size() < 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 150));
+        else if (cursorUpgrades.size() >= 21 && cursorUpgrades.size() < 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 200));
+        else if (cursorUpgrades.size() >= 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 250));
         return true;
       } else {
         return false;
