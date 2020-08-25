@@ -3,7 +3,7 @@ class GameHandler {
   float cookies = 0L;
   float cps = 0;
 
-  int pointers, grandma, time;
+  int pointers, grandma, mine, factory, alchemy, portal, time;
 
   float pointerPrice = 10;
   float grandmaPrice = 50;

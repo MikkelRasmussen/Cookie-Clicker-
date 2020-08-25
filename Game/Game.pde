@@ -67,11 +67,31 @@ void mouseClicked() {
       else if (cursorUpgrades.size() >= 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 250));
     }
   }
-  if (checkIfBought(mouseX, mouseY, 900, 200, width, 175)) {
+   else if (checkIfBought(mouseX, mouseY, 900, 187.5, width, 100)) {
     if (gameHandler.buy("grandma")) {
       
     }
-  }
+  }  
+  else if (checkIfBought(mouseX, mouseY, 900, 287.5, width, 100)) {
+    if (gameHandler.buy("mine")) {
+      
+    }
+  } 
+  else if (checkIfBought(mouseX, mouseY, 900, 387.5, width, 100)) {
+    if (gameHandler.buy("factory")) {
+      
+    }
+  } 
+  else if (checkIfBought(mouseX, mouseY, 900, 487.5, width, 100)) {
+    if (gameHandler.buy("alchemy")) {
+      
+    }
+  }  
+  else if (checkIfBought(mouseX, mouseY, 900, 587.5, width, 100)) {
+    if (gameHandler.buy("portal")) {
+      
+    }
+  } 
 }
 
 void mousePressed() {
