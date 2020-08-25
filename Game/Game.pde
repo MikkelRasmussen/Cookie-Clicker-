@@ -50,16 +50,12 @@ void draw() {
   for (int i = 1; i < img.length; i++) {
     line(900, 100*i+87.5, width, 100*i+87.5);
     image(img[i], 900, 100*i, 75, 75);
+    textSize(24);
+    text("Price: " + nf(prices[i-1], 0, 1), 970, i*100+55);
   }
 
   gameHandler.update();
-  textSize(24);
-  text("Price: " + nf(gameHandler.pointerPrice, 0, 1), 970, 155);
-  text("Price: " + nf(gameHandler.grandmaPrice, 0, 1), 970, 255);
-  text("Price: " + nf(gameHandler.minePrice, 0, 1), 970, 355);
-  text("Price: " + nf(gameHandler.factoryPrice, 0, 1), 970, 455);
-  text("Price: " + nf(gameHandler.alchemyPrice, 0, 1), 970, 555);
-  text("Price: " + nf(gameHandler.portalPrice, 0, 1), 970, 655);
+
 }
 
 void mouseClicked() {

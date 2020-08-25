@@ -1,6 +1,6 @@
 class GameHandler {
 
-  float cookies = 99999999999999L;
+  float cookies = 3000000L;
   float cps = 0;
   int time;
 
@@ -18,15 +18,6 @@ class GameHandler {
 
 
   boolean buy(String s) {
-    for (int i = 0; i < upgrades.length; i++ ) {
-      if (cookies >= prices[i]) {
-        cookies = cookies-prices[i];
-        amount[i]++;
-        prices[i] = prices[i]*1.5;
-        cps = cps + 1+sq(sq(i));
-        return true;
-      }
-    }
 
     if (s == "pointer") {
       if (cookies >= prices[0]) {
