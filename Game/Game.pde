@@ -1,8 +1,11 @@
 //Images
+PFont Inter;
 
 ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
 
-String[] Upgrades = {"pointer", "grandma", "mine", "factory", "alchemy", "portal"};
+String[] upgrades = {"pointer", "grandma", "mine", "factory", "alchemy", "portal"};
+float[] prices = {10, 50, 250, 1250, 6000, 30000};
+int[] amount = {0, 0, 0, 0, 0, 0};
 
 GameHandler gameHandler;
 
@@ -17,6 +20,8 @@ int cookieH = 250;
 
 void setup() {
   size(1200, 800);
+
+  Inter = createFont("InterFont.ttf", 32);
 
   gameHandler = new GameHandler();
 
@@ -37,9 +42,10 @@ void draw() {
     temp.update();
   }
   fill(0);
+  textFont(Inter);
   textSize(32);
-  text("Cookies: " + nf(gameHandler.cookies, 0, -1), 50, 50);
-  text("Cps: " + nf(gameHandler.cps, 0, 2), 50, 80);
+  text("COOKIES: " + nf(gameHandler.cookies, 0, -1), 50, 50);
+  text("CPS: " + nf(gameHandler.cps, 0, 2), 50, 80);
 
   for (int i = 1; i < img.length; i++) {
     line(900, 100*i+87.5, width, 100*i+87.5);
@@ -63,20 +69,19 @@ void mouseClicked() {
 
 
   // Upgrades
-  for ( int i = 0; i < Upgrades.length; i++ ){
-    if(checkIfBought(mouseX, mouseY, 900, i*100 + 87.5, width, 100)){
-      gameHandler.buy(Upgrades[i]);
-     }
+  for ( int i = 0; i < upgrades.length; i++ ) {
+    if (checkIfBought(mouseX, mouseY, 900, i*100 + 87.5, width, 100)) {
+      gameHandler.buy(upgrades[i]);
+    }
   }
-
 }
 
 void mousePressed() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
     cookieX = cookieX - 5; 
-      cookieY = cookieY - 5; 
-      cookieH = cookieH + 10; 
-      cookieW = cookieW + 10;
+    cookieY = cookieY - 5; 
+    cookieH = cookieH + 10; 
+    cookieW = cookieW + 10;
   }
 }
 
@@ -84,8 +89,8 @@ void mousePressed() {
 void mouseReleased() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
     cookieX = cookieX + 5; 
-      cookieY = cookieY + 5; 
-      cookieH = cookieH - 10; 
-      cookieW = cookieW - 10;
+    cookieY = cookieY + 5; 
+    cookieH = cookieH - 10; 
+    cookieW = cookieW - 10;
   }
 }

@@ -1,16 +1,8 @@
 class GameHandler {
 
-  float cookies = 9999999999999999999999L;
+  float cookies = 99999999999999L;
   float cps = 0;
-
-  int pointers, grandma, mine, factory, alchemy, portal, time;
-
-  float pointerPrice = 10;
-  float grandmaPrice = 50;
-  float minePrice = 250;
-  float factoryPrice = 1250;
-  float alchemyPrice = 6000;
-  float portalPrice = 30000;
+  int time;
 
   GameHandler() {
   }
@@ -26,11 +18,21 @@ class GameHandler {
 
 
   boolean buy(String s) {
+    for (int i = 0; i < upgrades.length; i++ ) {
+      if (cookies >= prices[i]) {
+        cookies = cookies-prices[i];
+        amount[i]++;
+        prices[i] = prices[i]*1.5;
+        cps = cps + 1+sq(sq(i));
+        return true;
+      }
+    }
+
     if (s == "pointer") {
-      if (cookies >= pointerPrice) {
-        cookies = cookies-pointerPrice;
-        pointers++;
-        pointerPrice = pointerPrice*1.5;
+      if (cookies >= prices[0]) {
+        cookies = cookies-prices[0];
+        amount[0]++;
+        prices[0] = prices[0]*1.5;
         cps = cps+2.5;
         if (cursorUpgrades.size() < 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 150));
         else if (cursorUpgrades.size() >= 21 && cursorUpgrades.size() < 42) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 200));
@@ -40,50 +42,50 @@ class GameHandler {
         return false;
       }
     } else if (s == "grandma") {
-      if (cookies >= grandmaPrice) {
-        cookies = cookies-grandmaPrice;
-        grandma++;
-        grandmaPrice = grandmaPrice*1.5;
+      if (cookies >= prices[1]) {
+        cookies = cookies-prices[1];
+        amount[1]++;
+        prices[1] = prices[1]*1.5;
         cps = cps+12.5;
         return true;
       } else {
         return false;
       }
     } else if (s == "mine") {
-      if (cookies >= minePrice) {
-        cookies = cookies-minePrice;
-        mine++;
-        minePrice = minePrice*1.5;
+      if (cookies >= prices[2]) {
+        cookies = cookies-prices[2];
+        amount[2]++;
+        prices[2] = prices[2]*1.5;
         cps = cps+60;
         return true;
       } else {
         return false;
       }
     } else if (s == "factory") {
-      if (cookies >= factoryPrice) {
-        cookies = cookies-factoryPrice;
-        factory++;
-        factoryPrice = factoryPrice*1.5;
+      if (cookies >= prices[3]) {
+        cookies = cookies-prices[3];
+        amount[3]++;
+        prices[3] = prices[3]*1.5;
         cps = cps+300;
         return true;
       } else {
         return false;
       }
-    }else if (s == "alchemy") {
-      if (cookies >= alchemyPrice) {
-        cookies = cookies-alchemyPrice;
-        alchemy++;
-        alchemyPrice = alchemyPrice*1.5;
+    } else if (s == "alchemy") {
+      if (cookies >= prices[4]) {
+        cookies = cookies-prices[4];
+        amount[4]++;
+        prices[4] = prices[4]*1.5;
         cps = cps+1500;
         return true;
       } else {
         return false;
       }
-    }else if (s == "portal") {
-      if (cookies >= portalPrice) {
-        cookies = cookies-portalPrice;
-        portal++;
-        portalPrice = portalPrice*1.5;
+    } else if (s == "portal") {
+      if (cookies >= prices[5]) {
+        cookies = cookies-prices[5];
+        amount[5]++;
+        prices[5] = prices[5]*1.5;
         cps = cps+7500;
         return true;
       } else {
