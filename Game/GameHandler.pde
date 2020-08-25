@@ -52,7 +52,7 @@ class GameHandler {
   }
 }
 
-boolean checkIfBought(int x1, int y1, int x2, int y2, int w, int h) {
+boolean checkIfBought(int x1, int y1, int x2, float y2, int w, float h) {
   if (x1 >= x2 && x1 <= x2 + w && y1 >= y2 && y1 <= y2 + h) return true;
   else return false;
 }
