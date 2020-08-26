@@ -1,4 +1,3 @@
-//Images
 PFont Inter;
 
 ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
