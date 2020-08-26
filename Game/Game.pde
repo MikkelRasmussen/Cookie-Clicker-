@@ -47,7 +47,7 @@ void draw() {
   }  
   gameHandler.update();
 }
-
+ 
 void mouseClicked() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
     gameHandler.cookies++;
@@ -74,4 +74,4 @@ void mouseReleased() {
     cookieH = cookieH - 10; 
     cookieW = cookieW - 10;
   }
-}
+}  
