@@ -21,7 +21,6 @@ class GameHandler {
       amount[i]++;
       prices[i] = prices[i]*1.5;
       cps = cps + cpsUp[i];
-
       //Yderlig
       if (i == 0) {
         if (cursorUpgrades.size() < 21) cursorUpgrades.add(new CursorUpgrade(450, 450, 400, 400, 50, cursorUpgrades.size(), 150));
