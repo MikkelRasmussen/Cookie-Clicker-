@@ -6,6 +6,7 @@ ArrayList<CursorUpgrade> cursorUpgrades = new ArrayList<CursorUpgrade>();
 String[] upgrades = {"pointer", "grandma", "mine", "factory", "alchemy", "portal"};
 float[] prices = {10, 50, 250, 1250, 6000, 30000};
 int[] amount = {0, 0, 0, 0, 0, 0};
+float[] positionY = {};
 
 GameHandler gameHandler;
 
@@ -65,6 +66,8 @@ void mouseClicked() {
 
 
   // Upgrades
+  
+  
   for ( int i = 0; i < upgrades.length; i++ ) {
     if (checkIfBought(mouseX, mouseY, 900, i*100 + 87.5, width, 100)) {
       gameHandler.buy(upgrades[i]);

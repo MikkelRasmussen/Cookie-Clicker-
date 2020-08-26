@@ -1,6 +1,6 @@
 class GameHandler {
 
-  float cookies = 3000000L;
+  float cookies = 0L;
   float cps = 0;
   int time;
 
@@ -14,8 +14,6 @@ class GameHandler {
       cookies = cookies + cps;
     }
   }
-
-
 
   boolean buy(String s) {
 
