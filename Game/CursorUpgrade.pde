@@ -1,5 +1,4 @@
 class CursorUpgrade {
-
   PVector location, centerLocation;
   int time, size, id, cx = 400, cy = 400, rr, r;
 

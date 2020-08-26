@@ -11,17 +11,12 @@ GameHandler gameHandler;
 
 PImage img[] = new PImage[7];
 
-//Cookie variabler
-int cookieX = 275;
-int cookieY = 275;
-int cookieW = 250;
-int cookieH = 250;
+int cookieX = 275, cookieY = 275, cookieW = 250, cookieH = 250;
 
 void setup() {
   size(1200, 800);
 
   Inter = createFont("InterFont.ttf", 32);
-
   gameHandler = new GameHandler();
 
   img[0] = loadImage("PerfectCookie.png");
@@ -36,7 +31,6 @@ void setup() {
 void draw() {
   background(255);
   image(img[0], cookieX, cookieY, cookieW, cookieH);
-
   for (CursorUpgrade temp : cursorUpgrades) {
     temp.update();
   }
