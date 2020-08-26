@@ -26,7 +26,7 @@ class CursorUpgrade {
     int x = (int)(cx+r*cos(t));
     int y = (int)(cy+r*sin(t));
     translate(x, y);
-    rotate(t-PI/1.4);//or rotate(t-PI/2); (depending on what you need)
+    rotate(t-PI/1.4);
     image(img[1], 0, 0, size, size);
     popMatrix();
   }
