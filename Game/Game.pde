@@ -74,3 +74,5 @@ void mouseReleased() {
     cookieW = cookieW - 10;
   }
 }  
+
+void keyPressed(){}
