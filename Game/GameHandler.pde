@@ -1,5 +1,5 @@
 class GameHandler {
-  float cookies = 30000L;
+  float cookies = 0L;
   float cps = 0;
   int time;
   
@@ -25,7 +25,7 @@ class GameHandler {
   }
 }
 
-boolean checkIfBought(int x1, int y1, int x2, float y2, int w, float h) {
+boolean checkIfInsideBox(int x1, int y1, int x2, float y2, int w, float h) {
   if (x1 >= x2 && x1 <= x2 + w && y1 >= y2 && y1 <= y2 + h) return true;
   else return false;
 }
