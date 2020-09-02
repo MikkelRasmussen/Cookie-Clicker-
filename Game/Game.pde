@@ -46,7 +46,7 @@ void draw() {
   }  
   gameHandler.update();
 }
- 
+
 void mouseClicked() {
   if (mouseX > cookieX && mouseX < cookieX + cookieW && mouseY > cookieY && mouseY < cookieY + cookieH) {
     gameHandler.cookies++;
@@ -75,4 +75,18 @@ void mouseReleased() {
   }
 }  
 
-void keyPressed(){}
+void keyPressed()
+{
+  if (keyCode == DOWN) {
+    cookieY = cookieY-15;
+    for (CursorUpgrade temp : cursorUpgrades) {
+      temp.cy = temp.cy-15;
+    }
+  }
+  if (keyCode == UP) {
+    cookieY = cookieY+15;
+    for (CursorUpgrade temp : cursorUpgrades) {
+      temp.cy = temp.cy+15;
+    }
+  }
+}

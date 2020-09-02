@@ -1,6 +1,6 @@
 class CursorUpgrade {
   PVector location, centerLocation;
-  int time, size, id, cx = 400, cy = 400, rr, r;
+  int time, size, id, cx = cookieX+125, cy = cookieY+125, rr, r;
 
   CursorUpgrade(int x1, int  y1, int x2, int y2, int s, int i, int r) {
     location = new PVector(x1, y1);
